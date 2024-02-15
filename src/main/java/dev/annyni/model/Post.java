@@ -13,7 +13,6 @@ public class Post {
     private Status status;
 
     public Post(String title, String content, List<Label> labels, Status status) {
-        this.id = ThreadLocalRandom.current().nextLong(Long.MAX_VALUE);
         this.title = title;
         this.content = content;
         this.labels = labels;

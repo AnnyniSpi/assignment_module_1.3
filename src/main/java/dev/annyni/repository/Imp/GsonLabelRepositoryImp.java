@@ -28,6 +28,8 @@ public class GsonLabelRepositoryImp implements LabelRepository {
     @Override
     public Label save(Label label) {
         List<Label> labels = dataImp.readData(Label.class);
+        Long labelId = dataImp.generateId(labels, Label::getId);
+        label.setId(labelId);
         labels.add(label);
         dataImp.writeData(labels);
 

@@ -9,7 +9,6 @@ public class Label {
     private Status status;
 
     public Label(String name, Status status) {
-        this.id = ThreadLocalRandom.current().nextLong(Long.MAX_VALUE);
         this.name = name;
         this.status = status;
     }

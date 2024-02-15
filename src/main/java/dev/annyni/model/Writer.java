@@ -13,7 +13,6 @@ public class Writer {
     private Status status;
 
     public Writer(String firstName, String lastName, List<Post> posts, Status status) {
-        this.id = ThreadLocalRandom.current().nextLong(Long.MAX_VALUE);
         this.firstName = firstName;
         this.lastName = lastName;
         this.posts = posts;

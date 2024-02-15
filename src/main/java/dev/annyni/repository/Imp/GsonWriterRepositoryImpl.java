@@ -29,6 +29,8 @@ public class GsonWriterRepositoryImpl implements WriterRepository {
     @Override
     public Writer save(Writer writer) {
         List<Writer> writers = dataImp.readData(Writer.class);
+        Long writerId = dataImp.generateId(writers, Writer::getId);
+        writer.setId(writerId);
         writers.add(writer);
         dataImp.writeData(writers);
 

@@ -6,6 +6,7 @@ import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 public class DataImp {
 
@@ -37,5 +38,11 @@ public class DataImp {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public <T> Long generateId(List<T> data, Function<T, Long> createId){
+        return data.stream()
+                .mapToLong(createId::apply)
+                .max().orElse(0) + 1;
     }
 }

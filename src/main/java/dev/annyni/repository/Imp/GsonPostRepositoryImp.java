@@ -29,6 +29,8 @@ public class GsonPostRepositoryImp implements PostRepository {
     @Override
     public Post save(Post post) {
         List<Post> posts = dataImp.readData(Post.class);
+        Long postId = dataImp.generateId(posts, Post::getId);
+        post.setId(postId);
         posts.add(post);
         dataImp.writeData(posts);
 
